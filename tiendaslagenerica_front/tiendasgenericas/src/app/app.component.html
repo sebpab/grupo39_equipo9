@@ -1,0 +1,43 @@
+
+
+<br>
+<div>
+<h1 class ="text-primary fw-bolder">Login de acceso</h1>
+</div>
+<br><br>
+
+<div class="card text-center">
+  <div class="card-body">
+<div>
+<label>Usuario</label> &nbsp;  &nbsp;  
+<input type="text" [(ngModel)]="entrada1" placeholder="Ingrese su usuario"><br><br>
+</div>
+
+<div>
+<label>Contraseña</label>&nbsp;  &nbsp;  
+<input type="password" [(ngModel)]="entrada2" placeholder="Ingrese su contraseña">
+</div>
+
+<br><br>
+
+<div>
+<button (click)="validacion()" type="submit"  class= "btn btn-success"><i class="far fa-address-card"></i> Aceptar</button> &nbsp;  &nbsp;  
+
+<button type="reset" class= "btn btn-danger" value="Reset"><i class="fas fa-broom"></i>  Cancelar</button>
+</div>
+
+</div>
+</div>
+<br><br>
+
+
+<div class="alert alert-primary" role="alert" >
+  <h4 class="animate__animated animate__bounce">{{mensaje}}</h4>
+</div>
+
+
+
+
+
+
+
