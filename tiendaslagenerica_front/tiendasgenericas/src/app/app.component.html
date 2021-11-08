@@ -1,40 +1,44 @@
+<div class=container>
+  <div>    
+    <div class="position-absolute top-50 start-50 translate-middle mt-5">
+      <h1><i class="fas fa-sign-in-alt"></i> Login del sistema</h1>
+      <div class=row>
+        <div class="col-sm-12">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-shield"></i></span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="user">
+          </div>
+        </div>        
+      </div>
+      <div class=row>
+        <div class="col-sm-12">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="pass">
+          </div>
+        </div>        
+      </div>
+      <div class=row>
+        <div class="col-sm-12">
+          <button class="btn btn-success" (click)="comparar()">Iniciar Sesión</button>  
+                               
+        </div>        
+      </div> 
+      <br>
 
+      <!-- alertas -->
 
-<br>
-<div>
-<h1 class ="text-primary fw-bolder">Login de acceso</h1>
+      <div *ngIf="correcto=='autorizado'"   class="alert alert-success" role="alert">
+        Acceso correcto.  Redirigiendo al sistema ...
+      </div>
+      
+      <div *ngIf="correcto=='noautorizado'"   class="alert alert-danger" role="alert" >
+        Usuario o contraseña incorrecta
+      </div> 
+
+    </div>
+  </div>
 </div>
-<br><br>
-
-<div class="card text-center">
-  <div class="card-body">
-<div>
-<label>Usuario</label> &nbsp;  &nbsp;  
-<input type="text" [(ngModel)]="entrada1" placeholder="Ingrese su usuario"><br><br>
-</div>
-
-<div>
-<label>Contraseña</label>&nbsp;  &nbsp;  
-<input type="password" [(ngModel)]="entrada2" placeholder="Ingrese su contraseña">
-</div>
-
-<br><br>
-
-<div>
-<button (click)="validacion()" type="submit"  class= "btn btn-success"><i class="far fa-address-card"></i> Aceptar</button> &nbsp;  &nbsp;  
-
-<button type="reset" class= "btn btn-danger" value="Reset"><i class="fas fa-broom"></i>  Cancelar</button>
-</div>
-
-</div>
-</div>
-<br><br>
-
-
-<div class="alert alert-primary" role="alert" >
-  <h4 class="animate__animated animate__bounce">{{mensaje}}</h4>
-</div>
-
 
 
 
