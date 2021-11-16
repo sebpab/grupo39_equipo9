@@ -1,0 +1,58 @@
+<div class = "content">
+
+  <div class="container-fluid px-4 animate__animated animate__bounceInLeft">
+				<h1 class="mt-4">Insertar archivo de productos</h1>
+				<ol class="breadcrumb mb-4">
+					<li class="breadcrumb-item active">Permite cargar un archivo
+						CSV con los productos que tiene la tienda</li>
+				</ol>
+  </div>
+
+  
+
+<div class="text-center">
+
+  <input class="form-control" type="file" (change)="onChange($event)" accept=".csv">
+
+  <button (click)="onUpload()" class="btn btn-success"><i class="fas fa-file-upload"></i>
+    Cargar
+  </button>
+  <div *ngIf="cargado == true"  class="alert alert-success" role="alert">
+    Carga exitosa.  Refresque pagina.
+  </div>
+ 
+  <br><br>
+
+
+</div>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Codigo Producto</th>
+          <th>Nombre Producto</th>
+          <th>NIT Proveedor</th>
+          <th>Precio Compra</th>
+          <th>IVA compra</th>
+          <th>Precio Venta</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let producto of contenido">
+          <td>{{producto.codigoproducto}}</td>
+          <td>{{producto.nombreproducto}}</td>
+          <td>{{producto.nitproveedor}}</td>
+          <td>{{producto.preciocompra}}</td>
+          <td>{{producto.ivacompra}}</td>
+          <td>{{producto.precioventa}}</td>
+      </tr>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <button (click)="refrescar()" class="btn btn-danger"><i class="fas fa-bath"></i>
+    Refrescar
+  </button>
+</div>
+
+</div>
