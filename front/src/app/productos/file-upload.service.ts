@@ -51,7 +51,10 @@ export class FileUploadService {
 
        for (let lineaactual of separados) {
 
-      
+        if (lineaactual===""){
+
+          continue;
+        }
         
          lineaactual.replace(";", ",");
 
