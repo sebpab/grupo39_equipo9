@@ -1,0 +1,81 @@
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cliente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Cedula</label>
+                  <input type="text" formControlName="cedula" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Nombre</label>
+                  <input type="text" formControlName="nombrecompleto"class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Direccion</label>
+                    <input type="text" formControlName="direccion" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Telefono</label>
+                    <input type="text" formControlName="telefono" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Correo</label>
+                    <input type="text" formControlName="correo" class="form-control" id="exampleInputPassword1">
+                  </div>
+    
+               
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" (click)="postClienteDetails()" class="btn btn-primary">Agregar</button>
+          <!-- <button type="button" (click)="updateClienteDetail()" class="btn btn-primary">Actualizar</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid">
+    <h1>Clientes</h1>
+    <div class="d-flex">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add cliente</button>
+    </div>
+</div>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of clienteData">
+            <td>{{row.cedula}}</td>
+            <td>{{row.nombrecompleto}}</td>
+            <td>{{row.direccion}}</td>
+            <td>{{row.telefono}}</td>
+            <td>{{row.correo}}</td>
+            <td>
+                <button (click)="onEdit(row)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Editar</button>
+                <button (click)="deleteCliente(row)" class="btn btn-danger mx-3">Eliminar</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
