@@ -10,21 +10,26 @@
 
   
 
-<div class="text-center">
 
-  <input class="form-control" type="file" (change)="onChange($event)" accept=".csv">
 
-  <button (click)="onUpload()" class="btn btn-success"><i class="fas fa-file-upload"></i>
+  <input class="form-control mb-3" type="file" (change)="onChange($event)" accept=".csv">
+
+  <button (click)="onUpload()" class="btn btn-success mx-3 mb-3"><i class="fas fa-file-upload"></i>
     Cargar
   </button>
+  
+    <button (click)="refrescar()" class="btn btn-danger mx-3 mb-3"><i class="fas fa-bath"  ></i>
+      Refrescar
+    </button>
+  
   <div *ngIf="cargado == true"  class="alert alert-success" role="alert">
     Carga exitosa.  Refresque pagina.
   </div>
  
-  <br><br>
+  
 
 
-</div>
+
 
 <table class="table table-striped">
   <thead>
@@ -49,10 +54,6 @@
   </tbody>
 </table>
 
-<div class="text-center">
-  <button (click)="refrescar()" class="btn btn-danger"><i class="fas fa-bath"></i>
-    Refrescar
-  </button>
-</div>
+
 
 </div>
