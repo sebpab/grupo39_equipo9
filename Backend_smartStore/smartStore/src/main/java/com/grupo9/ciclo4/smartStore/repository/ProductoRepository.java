@@ -7,7 +7,7 @@ import com.grupo9.ciclo4.smartStore.model.Producto;
 public interface ProductoRepository extends MongoRepository<Producto, String>{
 
 
-	List<Producto> findByCodigoproducto(String codigoproducto);
+	List<Producto> findByCodigoproducto(int codigoproducto);
 
 	//List<Producto> findByNombreproducto(String Nombreproducto);
 

@@ -1,0 +1,163 @@
+.formularioPrincipal{
+	padding: 20px 0px;
+	width:95%;
+	height:auto;
+	margin: 40px auto;
+	border: 1.5px solid rgba(0,0,0,0.2);
+	border-radius:8px;
+	display:grid;
+	grid-template-areas: "fieldset btnCliente"
+						"datosCliente  datosCliente";
+						
+	grid-template-rows: 100px auto;
+	background: white;
+}
+.inputCedula{
+	width:90%;
+	margin: 10px 5% 10px 4.5%;
+	grid-area:fieldset;
+}
+
+.btnCliente{
+	grid-area:btnCliente;
+	height:35px;
+	width:90%;
+	margin: auto 8% auto 2%;
+	transform: translateY(10px);
+	border:none;
+	background:green;
+	border-radius:5px;
+	color:white;
+}
+#datosCliente{
+	grid-area:datosCliente;
+	display:grid;
+	grid-template-areas: "nombre direccion"
+						 "telefono correo";
+	grid-template-rows: auto auto;
+	grid-template-columns: auto auto;
+}
+.inputNombre{
+	grid-area:nombre;
+	width:90%;
+	margin: 10px 5%;
+}
+
+.inputDireccion{
+	grid-area:direccion;
+	width:90%;
+	margin: 10px 5%;
+}
+.inputTelefono{
+	grid-area: telefono;
+	width:90%;
+	margin: 10px 5%;
+}
+
+.inputCorreo{
+	grid-area: correo;
+	width:90%;
+	margin: 10px 5%;
+}
+.formularioProductos{
+	padding: 20px 0px;
+	width:95%;
+	height:auto;
+	margin: 40px auto;
+	border: 1.5px solid rgba(0,0,0,0.2);
+	border-radius:8px;
+	background: white;
+}
+.titulosClientes{
+	display:grid;
+	grid-template-areas: "codigotitulo espacioProductoT nombreproductotitulo cantidadproducto valorproducto";
+	grid-template-columns:  3fr 3fr 4fr 1fr 2fr;
+	justify-content:center;
+	text-align:center;
+}
+.codigoProductoT{
+	grid-area:codigotitulo;
+}
+.espacioProductoT{
+	grid-area:espacioProductoT;
+}
+
+.nombreProductoT{
+	grid-area:nombreproductotitulo;
+	margin-left:-25px;
+}
+
+.cantProductoT{
+	grid-area:cantidadproducto;
+	margin-left:-40px;
+}
+
+.valorProductoT{
+	grid-area:valorproducto;
+	margin-left:-30px;
+}
+
+.producto1, .producto2, .producto3{
+	padding:5px 25px;
+	display:grid;
+	grid-template-areas: "codigo btnconsultar nombreproducto cantidadproducto valorproducto";
+	grid-template-columns: 180px 100px 300px 50px 200px;
+	grid-template-columns: 3fr 3fr 4fr 1fr 2fr;
+	gap:22px;
+}
+
+#codigoProducto1, #codigoProducto2, #codigoProducto3{
+	grid-area: codigo;
+	width:100%;
+}
+
+#submitProducto1, #submitProducto2, #submitProducto3{
+	grid-area: btnconsultar;
+	width:100%;
+	height:35px;
+	margin: auto 0px;
+	transform: translateY(0px);
+	border:none;
+	background:green;
+	border-radius:5px;
+	color:white;
+}
+
+#nombreProducto1, #nombreProducto2, #nombreProducto3{
+	grid-area: nombreproducto;
+	width:100%;
+}
+
+#cantidadProducto1, #cantidadProducto2, #cantidadProducto3{
+	grid-area: cantidadproducto;
+	width:100%;
+}
+
+#valorProducto1, #valorProducto2, #valorProducto3{
+	grid-area: valorproducto;
+	width:100%;
+}
+.formularioCalculo{
+	padding: 20px 0px;
+	width:95%;
+	height:auto;
+	margin: 40px auto;
+	border: 1.5px solid rgba(0,0,0,0.2);
+	border-radius:8px;
+	padding: 30px;
+	background: white;
+}
+#confirmarVenta, #calcularTotales{
+	height:40px;
+	margin: 20px 10px;
+	padding: 0px 15px;
+	border:none;
+	background:green;
+	border-radius:5px;
+	color:white;
+}
+.tituloventas{
+    justify-content: center;
+    margin-top:40px;
+    display: flex;
+}
