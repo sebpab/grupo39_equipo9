@@ -8,4 +8,5 @@ export class ventasModel {
     codigoproducto1: string = '';
     codigoproducto2: string = '';
     codigoproducto3: string = '';
+    nombreproducto: string = '';
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { VentasService } from '../ventas.service';
 import { ventasModel } from './ventas.model';
 
@@ -14,6 +14,21 @@ export class VentasComponent implements OnInit {
   ventaModelObj: ventasModel = new ventasModel();
   clienteData!: any;
   productoData!: any;
+  
+  formProductos:FormGroup = new FormGroup({
+      codigoproducto1: new FormControl(''),
+      nombreProducto1: new FormControl(''),
+      codigoproducto2: new FormControl(''),
+      nombreProducto2: new FormControl(''),
+      codigoproducto3: new FormControl(''),
+      nombreProducto3: new FormControl(''),
+      valorProducto1: new FormControl(''),
+      valorProducto2: new FormControl(''),
+      valorProducto3: new FormControl(''),
+      valortotalProducto1: new FormControl(''),
+      valortotalProducto2: new FormControl(''),
+      valortotalProducto3: new FormControl(''),
+  });
   constructor(private formbuilder: FormBuilder, private api: VentasService) { }
 
   ngOnInit(): void
@@ -29,7 +44,11 @@ export class VentasComponent implements OnInit {
       codigoproducto1: [''],
       codigoproducto2: [''],
       codigoproducto3: [''],
+      nombreproducto: [''],
     })
+
+    
+
     /*
     let botonesConsultar: NodeListOf<Element>;
     botonesConsultar = document.querySelectorAll("#submitProducto");
@@ -39,6 +58,7 @@ export class VentasComponent implements OnInit {
         this.enviarProducto(i);
       }); 
     }*/
+    
   } 
   enviarCedula(){
     this.ventaModelObj.cedula = this.formValue.value.cedula;
@@ -48,25 +68,32 @@ export class VentasComponent implements OnInit {
     });
   }
   enviarProducto1(){
-    console.log("hola1");
-    this.ventaModelObj.codigoproducto1 = this.formValueProductos.value.codigoproducto1;
+    this.ventaModelObj.codigoproducto1 = this.formProductos.value.codigoproducto1;
     this.api.getProducto(this.ventaModelObj.codigoproducto1).subscribe((res)=>{
-    this.productoData = res;
+      this.productoData = res;
+      //this.formValueProductos.value.nombreproducto = this.productoData[0].nombreproducto;
+      this.formProductos.patchValue({
+        nombreProducto1: this.productoData[0].nombreproducto,
+      });
     });
-    }
+  }
   enviarProducto2(){
-    console.log("hola2");
-    this.ventaModelObj.codigoproducto2 = this.formValueProductos.value.codigoproducto2;
+    this.ventaModelObj.codigoproducto2 = this.formProductos.value.codigoproducto2;
     this.api.getProducto(this.ventaModelObj.codigoproducto2).subscribe((res)=>{
-    this.productoData = res;
+      this.productoData = res;
+      this.formProductos.patchValue({
+        nombreProducto2: this.productoData[0].nombreproducto,
+      });
     });
-    }
+  }
   enviarProducto3(){
-    console.log("hola3");
-    this.ventaModelObj.codigoproducto3 = this.formValueProductos.value.codigoproducto3;
+    this.ventaModelObj.codigoproducto3 = this.formProductos.value.codigoproducto3;
     this.api.getProducto(this.ventaModelObj.codigoproducto3).subscribe((res)=>{
-    this.productoData = res;
-    });
+      this.productoData = res;
+      this.formProductos.patchValue({
+        nombreProducto3: this.productoData[0].nombreproducto,
+      });
+    }); 
   }
   /*
   enviarProducto(i:any){
