@@ -110,9 +110,8 @@ public class VentaController {
 			_venta.setDetalleventa(venta.getDetalleventa());
 			_venta.setIvaventa(venta.getIvaventa());
 			_venta.setTotalventa(venta.getTotalventa());
-			_venta.setTotalventa(venta.getTotalventa());
-			
-			return new ResponseEntity<>(HttpStatus.OK);
+			_venta.setValorventa(venta.getValorventa())	;
+			return new ResponseEntity<>(ventaRepository.save(_venta), HttpStatus.OK);
 			
 		}
 		
