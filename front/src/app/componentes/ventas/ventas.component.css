@@ -29,6 +29,26 @@
 	border-radius:5px;
 	color:white;
 }
+.btnProducto1, .btnProducto2, .btnProducto3 {
+	background:green;
+	border-radius:5px;
+	color:white;
+	border:none;
+}
+.botonCalcular{
+	width:100%;
+	height:auto;
+	display:flex;
+	justify-content: right;
+}
+.btnProducto4 {
+	background:green;
+	border-radius:5px;
+	color:white;
+	border:none;
+	padding:10px 50px;
+	margin: 20px 25px 0px;
+}
 #datosCliente{
 	grid-area:datosCliente;
 	display:grid;

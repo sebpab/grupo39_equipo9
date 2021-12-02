@@ -9,4 +9,10 @@ export class ventasModel {
     codigoproducto2: string = '';
     codigoproducto3: string = '';
     nombreproducto: string = '';
+    valorproducto1: string = '';
+    valorproducto2: string = '';
+    valorproducto3: string = '';
+    valorTotalProducto1: string = '';
+    valorTotalProducto2: string = '';
+    valorTotalProducto3: string = '';
   }

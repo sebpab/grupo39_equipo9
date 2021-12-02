@@ -1,30 +1,30 @@
 <div class="content">
     <h3 class="tituloventas">Gestión de ventas</h3>
-    <form [formGroup]="formValue" class="formularioPrincipal">
+    <form [formGroup]="formClientes" class="formularioPrincipal">
         
         <fieldset class="form-group inputCedula">
-            <label>Cédula</label> <input id="cedulaCliente" type="text" value="cedula" formControlName="cedula" class="form-control"
+            <label>Cédula</label> <input id="cedulaCliente" type="text" value="cedula" formControlName="cedulaCliente" class="form-control"
                 name="cedula_cliente" required="required">
         </fieldset>
         <button type="button" class="btnCliente"  id="submit" (click)="enviarCedula()">Consultar</button>
         <div id="datosCliente">
             <fieldset class="form-group inputNombre">
-                <label>Nombre</label> <input id="nombreCliente" type="text" disabled value="" class="form-control"
+                <label>Nombre</label> <input id="nombreCliente" readonly=»readonly» formControlName="nombreCliente" type="text" value="" class="form-control"
                     name="nombre_cliente" required="required">
             </fieldset>
 
             <fieldset class="form-group inputDireccion">
-                <label>Dirección</label> <input id="direccionCliente" type="text" disabled value="" class="form-control"
+                <label>Dirección</label> <input id="direccionCliente" readonly=»readonly» formControlName="direccionCliente" type="text" value="" class="form-control"
                     name="direccion_cliente">
             </fieldset>
 
             <fieldset class="form-group inputTelefono">
-                <label>Telefono</label> <input id="telefonoCliente" type="text" disabled value="" class="form-control"
+                <label>Telefono</label> <input id="telefonoCliente" readonly=»readonly» formControlName="telefonoCliente" type="text" value="" class="form-control"
                     name="telefono_cliente">
             </fieldset>
 
             <fieldset class="form-group inputCorreo">
-                <label>Correo</label> <input id="correoCliente" type="text" disabled value="" class="form-control"
+                <label>Correo</label> <input id="correoCliente" readonly=»readonly» formControlName="correoCliente" type="text" value="" class="form-control"
                     name="email_cliente">
             </fieldset>
         </div>
@@ -45,11 +45,10 @@
                 <button type="button" class="btnProducto1" id="submitProducto" (click)="enviarProducto1()">Consultar</button>
                 <input id="nombreProducto1" readonly=»readonly» type="text" formControlName="nombreProducto1" class="form-control" name="nombre_producto1"
                     required="required">
-                <input id="cantidadProducto1" onchange="calculartotal1()" type="text" value="" class="form-control"
+                <input id="cantidadProducto1" type="text" value="" formControlName="cantidadProducto1" class="form-control"
                     name="cantidad_producto1" required="required">
-                <input id="valorProducto1" readonly=»readonly» type="text" formControlName="valorProducto1" class="form-control" name="valor_producto1"
+                <input id="valorProducto1" readonly=»readonly» type="text" formControlName="valortotalProducto1" class="form-control" name="valor_producto1"
                     required="required">
-                <input id="precioBase1" readonly=»readonly» type="hidden" formControlName="valortotalProducto1" class="form-control">
             </fieldset>
         </div>
         <div class="filaProducto2">
@@ -59,11 +58,10 @@
                 <button type="button" class="btnProducto2" id="submitProducto" (click)="enviarProducto2()">Consultar</button>
                 <input id="nombreProducto2" readonly=»readonly» type="text" formControlName="nombreProducto2" class="form-control" name="nombre_producto2"
                     required="required">
-                <input id="cantidadProducto2" onchange="calculartotal2()" type="text" value="" class="form-control"
+                <input id="cantidadProducto2" type="text" value="" formControlName="cantidadProducto2" class="form-control"
                     name="cantidad_producto2" required="required">
-                <input id="valorProducto2" readonly=»readonly» type="text" formControlName="valorProducto2" class="form-control" name="valor_producto2"
+                <input id="valorProducto2" readonly=»readonly» type="text" formControlName="valortotalProducto2" class="form-control" name="valor_producto2"
                     required="required">
-                <input id="precioBase2" readonly=»readonly» type="hidden" formControlName="valortotalProducto2" class="form-control">
             </fieldset>
         </div>
         <div class="filaProducto3">
@@ -73,23 +71,25 @@
                 <button type="button" class="btnProducto3" id="submitProducto" (click)="enviarProducto3()">Consultar</button>
                 <input id="nombreProducto3" readonly=»readonly» type="text" formControlName="nombreProducto3" class="form-control" name="nombre_producto3"
                     required="required">
-                <input id="cantidadProducto3" onchange="calculartotal3()" type="text" value="" class="form-control"
+                <input id="cantidadProducto3" type="text" value="" formControlName="cantidadProducto3" class="form-control"
                     name="cantidad_producto3" required="required">
-                <input id="valorProducto3" readonly=»readonly» type="text" formControlName="valorProducto3" class="form-control" name="valor_producto3"
+                <input id="valorProducto3" readonly=»readonly» type="text" formControlName="valortotalProducto3" class="form-control" name="valor_producto3"
                     required="required">
-                <input id="precioBase3" readonly=»readonly» type="hidden" formControlName="valortotalProducto3" class="form-control">
             </fieldset>
         </div>
+        <div class="botonCalcular">
+            <button type="button" class="btnProducto4"  id="submit" (click)="calcularValorProductos()">Calcular</button>
+        </div>
     </form>
-    <form class="formularioCalculo">
+    <form [formGroup]="formVentas" class="formularioCalculo">
         <div class="calculos">
             <label class="tituloTotalVenta">Total Venta</label>
-            <input id="totalVenta" type="text" value="" class="form-control" required="required">
+            <input id="totalVenta" readonly=»readonly» type="text" value="" formControlName="sumaTotalProductos" class="form-control" required="required">
             <label class="tituloIVA">Total IVA</label>
-            <input id="totalIVA" type="text" value="" class="form-control" required="required">
+            <input id="totalIVA" readonly=»readonly» type="text" value="" formControlName="ivaVenta" class="form-control" required="required">
             <label class="tituloConIVA">Total con IVA</label>
-            <input id="totalConIVA" type="text" value="" class="form-control" required="required">
-            <button type="button" class="calcularTotales" id="calcularTotales">Calcular</button>
+            <input id="totalConIVA" readonly=»readonly» type="text" value="" formControlName="costoFinal" class="form-control" required="required">
+            <button type="button" (click)="calcularValorTotalVenta()" class="calcularTotales" id="calcularTotales">Calcular</button>
             <button type="button" onclick="miFunc()" class="confirmarVenta" id="confirmarVenta">Confirmar</button>
 
         </div>
