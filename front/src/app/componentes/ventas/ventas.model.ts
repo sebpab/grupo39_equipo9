@@ -15,4 +15,17 @@ export class ventasModel {
     valorTotalProducto1: string = '';
     valorTotalProducto2: string = '';
     valorTotalProducto3: string = '';
+    cantidadProducto1: string = '';
+    cantidadProducto2: string = '';
+    cantidadProducto3: string = '';
+    sumaTotal: string = '';
+    ivaVenta: string = '';
+    costoFinal: string = '';
+    valorVentaProducto1: string = '';
+    valorIVAProducto1: string = '';
+    valorVentaProducto2: string = '';
+    valorIVAProducto2: string = '';
+    valorVentaProducto3: string = '';
+    valorIVAProducto3: string = '';
+    codigoventa: string = '';
   }

@@ -1,33 +1,37 @@
 <div class="content">
-    <h3 class="tituloventas">Gestión de ventas</h3>
+    <h1 class="tituloventas animate__animated animate__bounceInLeft">Gestión de ventas</h1>
     <form [formGroup]="formClientes" class="formularioPrincipal">
-        
-        <fieldset class="form-group inputCedula">
-            <label>Cédula</label> <input id="cedulaCliente" type="text" value="cedula" formControlName="cedulaCliente" class="form-control"
+        <fieldset class="form-group fieldCedula">
+            <label class="cedulaTittle">Cédula</label>
+             <input id="cedulaC" type="text" value="cedula" formControlName="cedulaCliente" class="form-control"
+                name="cedula_cliente" required="required">
+            <button type="button" class="btnCliente"  id="submit" (click)="enviarCedula()">Consultar</button>
+        </fieldset>
+        <fieldset class="consecutivoV">
+            <label>Consecutivo</label> <input id="consecutivo" type="text" value="" formControlName="consecutivoVenta" class="form-control"
                 name="cedula_cliente" required="required">
         </fieldset>
-        <button type="button" class="btnCliente"  id="submit" (click)="enviarCedula()">Consultar</button>
-        <div id="datosCliente">
-            <fieldset class="form-group inputNombre">
-                <label>Nombre</label> <input id="nombreCliente" readonly=»readonly» formControlName="nombreCliente" type="text" value="" class="form-control"
-                    name="nombre_cliente" required="required">
-            </fieldset>
+        
+        <fieldset class="form-group inputNombre">
+            <label>Nombre</label> <input id="nombreCliente" readonly=»readonly» formControlName="nombreCliente" type="text" value="" class="form-control"
+                name="nombre_cliente" required="required">
+        </fieldset>
 
-            <fieldset class="form-group inputDireccion">
-                <label>Dirección</label> <input id="direccionCliente" readonly=»readonly» formControlName="direccionCliente" type="text" value="" class="form-control"
-                    name="direccion_cliente">
-            </fieldset>
+        <fieldset class="form-group inputDireccion">
+            <label>Dirección</label> <input id="direccionCliente" readonly=»readonly» formControlName="direccionCliente" type="text" value="" class="form-control"
+                name="direccion_cliente">
+        </fieldset>
 
-            <fieldset class="form-group inputTelefono">
-                <label>Telefono</label> <input id="telefonoCliente" readonly=»readonly» formControlName="telefonoCliente" type="text" value="" class="form-control"
-                    name="telefono_cliente">
-            </fieldset>
+        <fieldset class="form-group inputTelefono">
+            <label>Telefono</label> <input id="telefonoCliente" readonly=»readonly» formControlName="telefonoCliente" type="text" value="" class="form-control"
+                name="telefono_cliente">
+        </fieldset>
 
-            <fieldset class="form-group inputCorreo">
-                <label>Correo</label> <input id="correoCliente" readonly=»readonly» formControlName="correoCliente" type="text" value="" class="form-control"
-                    name="email_cliente">
-            </fieldset>
-        </div>
+        <fieldset class="form-group inputCorreo">
+            <label>Correo</label> <input id="correoCliente" readonly=»readonly» formControlName="correoCliente" type="text" value="" class="form-control"
+                name="email_cliente">
+        </fieldset>
+        
     </form>
 
     <form [formGroup]="formProductos" class="formularioProductos">
@@ -90,7 +94,7 @@
             <label class="tituloConIVA">Total con IVA</label>
             <input id="totalConIVA" readonly=»readonly» type="text" value="" formControlName="costoFinal" class="form-control" required="required">
             <button type="button" (click)="calcularValorTotalVenta()" class="calcularTotales" id="calcularTotales">Calcular</button>
-            <button type="button" onclick="miFunc()" class="confirmarVenta" id="confirmarVenta">Confirmar</button>
+            <button type="button" (click)="postVentasDetails()" class="confirmarVenta" id="confirmarVenta">Confirmar</button>
 
         </div>
     </form>

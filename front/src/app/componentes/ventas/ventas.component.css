@@ -6,29 +6,60 @@
 	border: 1.5px solid rgba(0,0,0,0.2);
 	border-radius:8px;
 	display:grid;
-	grid-template-areas: "fieldset btnCliente"
-						"datosCliente  datosCliente";
-						
-	grid-template-rows: 100px auto;
+	grid-template-areas: "inputCedula consecutivo "
+						"nombreCliente TelefonoCliente"
+						"direccionCliente correoCliente";
+	grid-template-columns: 50% 50%;
 	background: white;
 }
-.inputCedula{
-	width:90%;
-	margin: 10px 5% 10px 4.5%;
-	grid-area:fieldset;
-}
 
+.fieldCedula{
+	grid-area:inputCedula;
+	display:grid;
+	grid-template-areas: "label label"
+						"input boton";
+	grid-template-columns: 50% 50%;
+	margin: 0 5%;
+}
+.cedulaTittle{
+	grid-area:label;
+}
+#cedulaC{
+	grid-area:input;
+}
 .btnCliente{
-	grid-area:btnCliente;
-	height:35px;
-	width:90%;
-	margin: auto 8% auto 2%;
-	transform: translateY(10px);
+	grid-area:boton;
 	border:none;
 	background:green;
 	border-radius:5px;
 	color:white;
+	margin: 0 0 0 5%;
 }
+.consecutivoV{
+	grid-area: consecutivo;
+	margin: 0 5%;
+}
+.inputNombre{
+	grid-area:nombreCliente;
+	margin: 0 5%;
+}
+
+.inputDireccion{
+	grid-area:direccionCliente;
+	margin: 0 5%;
+}
+.inputTelefono{
+	grid-area: TelefonoCliente;
+	margin: 0 5%;
+}
+
+.inputCorreo{
+	grid-area: correoCliente;
+	margin: 0 5%;
+}
+
+
+
 .btnProducto1, .btnProducto2, .btnProducto3 {
 	background:green;
 	border-radius:5px;
@@ -56,28 +87,6 @@
 						 "telefono correo";
 	grid-template-rows: auto auto;
 	grid-template-columns: auto auto;
-}
-.inputNombre{
-	grid-area:nombre;
-	width:90%;
-	margin: 10px 5%;
-}
-
-.inputDireccion{
-	grid-area:direccion;
-	width:90%;
-	margin: 10px 5%;
-}
-.inputTelefono{
-	grid-area: telefono;
-	width:90%;
-	margin: 10px 5%;
-}
-
-.inputCorreo{
-	grid-area: correo;
-	width:90%;
-	margin: 10px 5%;
 }
 .formularioProductos{
 	padding: 20px 0px;

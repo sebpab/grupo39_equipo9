@@ -38,6 +38,7 @@ export class VentasComponent implements OnInit {
       telefonoCliente: new FormControl(''),
       direccionCliente: new FormControl(''),
       correoCliente: new FormControl(''),
+      consecutivoVenta: new FormControl(''),
   });
   formVentas:FormGroup = new FormGroup({
       sumaTotalProductos: new FormControl(''),
@@ -131,6 +132,85 @@ export class VentasComponent implements OnInit {
       ivaVenta: iva,
       costoFinal: parseInt(sumaTP) + parseInt(iva),
     });
+  }
+  //apiURLVenta:string="http://localhost:8080/api/ventas";
+  //this.httpObject.post(this.apiURLVenta,{});
+
+  postVentasDetails() {
+    this.ventaModelObj.cedula = this.formClientes.value.cedulaCliente;
+    this.ventaModelObj.codigoventa = this.formClientes.value.consecutivoVenta;
+    this.ventaModelObj.codigoproducto1 = this.formProductos.value.codigoproducto1;
+    this.ventaModelObj.codigoproducto2 = this.formProductos.value.codigoproducto2;
+    this.ventaModelObj.codigoproducto3 = this.formProductos.value.codigoproducto3;
+    this.ventaModelObj.sumaTotal = this.formVentas.value.sumaTotalProductos;
+    this.ventaModelObj.ivaVenta = this.formVentas.value.ivaVenta;
+    this.ventaModelObj.costoFinal = this.formVentas.value.costoFinal;
+    this.ventaModelObj.valorTotalProducto1 = this.formProductos.value.valortotalProducto1;
+    this.ventaModelObj.valorTotalProducto2 = this.formProductos.value.valortotalProducto2;
+    this.ventaModelObj.valorTotalProducto3 = this.formProductos.value.valortotalProducto3;
+    this.ventaModelObj.cantidadProducto1 = this.formProductos.value.cantidadProducto1;
+    this.ventaModelObj.cantidadProducto2 = this.formProductos.value.cantidadProducto2;
+    this.ventaModelObj.cantidadProducto3 = this.formProductos.value.cantidadProducto3;
+    let sumaTP = this.ventaModelObj.valorTotalProducto1 + this.ventaModelObj.valorTotalProducto2 + this.ventaModelObj.valorTotalProducto3;
+    let iva = (parseInt(sumaTP)*0.19).toFixed(0);
+    let ivap1 = (parseInt(this.ventaModelObj.valorTotalProducto1)*0.19).toFixed(0);
+    let valorVentaP1 = (parseInt(ivap1) + parseInt(this.ventaModelObj.valorTotalProducto1));
+    let ivap2 = (parseInt(this.ventaModelObj.valorTotalProducto2)*0.19).toFixed(0);
+    let valorVentaP2 = (parseInt(ivap2) + parseInt(this.ventaModelObj.valorTotalProducto2));
+    let ivap3 = (parseInt(this.ventaModelObj.valorTotalProducto3)*0.19).toFixed(0);
+    let valorVentaP3 = (parseInt(ivap3) + parseInt(this.ventaModelObj.valorTotalProducto3));
+    
+    console.log("Codigoventa: "+this.ventaModelObj.codigoventa);
+    console.log("cedulacliente: "+this.ventaModelObj.cedula);
+    console.log("detalleventa:");
+    console.log("cantidadproducto 1: "+this.ventaModelObj.cantidadProducto1);
+    console.log("codigoProducto 1: "+this.ventaModelObj.codigoproducto1);
+    console.log("valortotal: "+ this.ventaModelObj.valorTotalProducto1);
+    console.log("valorventa: " + valorVentaP1);
+    console.log("valorIVA: "+ ivap1);
+    console.log("valoriva: "+iva);
+    console.log("valorTotal: "+sumaTP);
+    console.log("valorVenta: "+ (parseInt(sumaTP) + parseInt(iva)));
+    this.api.postVenta(
+    {
+      "cedulacliente": this.ventaModelObj.cedula,
+      "codigoventa": this.ventaModelObj.codigoventa,
+      "detalleventa": [
+        {
+          "cantidadproducto": this.ventaModelObj.cantidadProducto1,
+          "codigoproducto": this.ventaModelObj.codigoproducto1,
+          "valoriva": ivap1,
+          "valortotal": this.ventaModelObj.valorTotalProducto1,
+          "valorventa": valorVentaP1
+        },
+        {
+          "cantidadproducto": this.ventaModelObj.cantidadProducto2,
+          "codigoproducto": this.ventaModelObj.codigoproducto2,
+          "valoriva": ivap2,
+          "valortotal": this.ventaModelObj.valorTotalProducto2,
+          "valorventa": valorVentaP2
+        },
+        {
+          "cantidadproducto": this.ventaModelObj.cantidadProducto3,
+          "codigoproducto": this.ventaModelObj.codigoproducto3,
+          "valoriva": ivap3,
+          "valortotal": this.ventaModelObj.valorTotalProducto3,
+          "valorventa": valorVentaP3
+        }
+      ],
+      "ivaventa": iva,
+      "totalventa": sumaTP,
+      "valorventa": (parseInt(sumaTP) + parseInt(iva))
+    }
+
+    ).subscribe(
+      (res)=> {
+        console.log(res);
+      },
+      (err) => {
+        alert('Error');
+      }
+    )
   }
 }
 

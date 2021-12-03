@@ -21,5 +21,11 @@ export class VentasService {
       })
     );
   }
-  
+  postVenta(data: any) {
+    return this.http.post<any>('http://localhost:8080/api/ventas', data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }
