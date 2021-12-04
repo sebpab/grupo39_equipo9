@@ -49,11 +49,12 @@ input{
     width: 100%;
     height: calc(100vh - 101.5px);
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(112, 112, 112, 0.6);
+    
 }
 .fondo_login{
     width: 100vw;
     height: 100%;
-    opacity: 0.8;
-    
+    opacity: 0.6;
+    filter: blur(2px);
 }
