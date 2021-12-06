@@ -7,19 +7,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Consolidado {
 	
 	@Id
-	private String codigociudad;
+	private String codigoventa;
 	private String ciudad;
-	private Long totalventas;
+	private String codigociudad;
 	
 	public Consolidado() {
 
 	}
 
-	public Consolidado(String codigociudad,String ciudad, Long totalventas) {
+	public Consolidado(String codigociudad,String ciudad, String codigoventa) {
 		super();
+		this.codigoventa = codigoventa;
 		this.codigociudad = codigociudad;
 		this.ciudad = ciudad;
-		this.totalventas = totalventas;
 	}
 
 
@@ -40,13 +40,15 @@ public class Consolidado {
 		this.ciudad = ciudad;
 	}
 
-	public Long getTotalventas() {
-		return totalventas;
+	public String getCodigoventa() {
+		return codigoventa;
 	}
 
-	public void setTotalventas(Long totalventas) {
-		this.totalventas = totalventas;
+	public void setCodigoventa(String codigoventa) {
+		this.codigoventa = codigoventa;
 	}
+
+	
 	
 	
 }
