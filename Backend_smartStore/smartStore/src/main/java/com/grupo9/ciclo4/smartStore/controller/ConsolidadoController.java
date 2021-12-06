@@ -74,8 +74,8 @@ public class ConsolidadoController {
 	}
 
 	@GetMapping("/consolidados/{id}")
-	public ResponseEntity<Consolidado> getConsolidadoById(@PathVariable("id") String codigociudad) {
-		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigociudad);
+	public ResponseEntity<Consolidado> getConsolidadoById(@PathVariable("id") String codigoventa) {
+		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigoventa);
 
 		if (consolidadoData.isPresent()) {
 			return new ResponseEntity<>(consolidadoData.get(), HttpStatus.OK);
@@ -88,7 +88,7 @@ public class ConsolidadoController {
 	public ResponseEntity<Consolidado> createConsolidado(@RequestBody Consolidado consolidated) {
 		try {
 			Consolidado _consolidado = consolidadoRepository
-					.save(new Consolidado(consolidated.getCodigociudad(),consolidated.getCiudad(), consolidated.getTotalventas()));
+					.save(new Consolidado(consolidated.getCodigociudad(),consolidated.getCiudad(), consolidated.getCodigoventa()));
 			return new ResponseEntity<>(_consolidado, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -96,14 +96,14 @@ public class ConsolidadoController {
 	}
 
 	@PutMapping("/consolidados/{id}")
-	public ResponseEntity<Consolidado> updateConsolidado(@PathVariable("id") String codigociudad,
+	public ResponseEntity<Consolidado> updateConsolidado(@PathVariable("id") String codigoventa,
 			@RequestBody Consolidado consolidated) {
-		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigociudad);
+		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigoventa);
 
 		if (consolidadoData.isPresent()) {
 			Consolidado _consolidado = consolidadoData.get();
 			_consolidado.setCiudad(consolidated.getCiudad());
-			_consolidado.setTotalventas(consolidated.getTotalventas());
+			_consolidado.setCodigociudad(consolidated.getCodigociudad());
 			return new ResponseEntity<>(consolidadoRepository.save(_consolidado), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -111,9 +111,9 @@ public class ConsolidadoController {
 	}
 
 	@DeleteMapping("/consolidados/{id}")
-	public ResponseEntity<HttpStatus> deleteConsolidados(@PathVariable("id") String codigociudad) {
+	public ResponseEntity<HttpStatus> deleteConsolidados(@PathVariable("id") String codigoventa) {
 		try {
-			consolidadoRepository.deleteById(codigociudad);
+			consolidadoRepository.deleteById(codigoventa);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
