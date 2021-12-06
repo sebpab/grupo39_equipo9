@@ -74,8 +74,8 @@ public class ConsolidadoController {
 	}
 
 	@GetMapping("/consolidados/{id}")
-	public ResponseEntity<Consolidado> getConsolidadoById(@PathVariable("id") String id) {
-		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(id);
+	public ResponseEntity<Consolidado> getConsolidadoById(@PathVariable("id") String codigociudad) {
+		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigociudad);
 
 		if (consolidadoData.isPresent()) {
 			return new ResponseEntity<>(consolidadoData.get(), HttpStatus.OK);
@@ -88,7 +88,7 @@ public class ConsolidadoController {
 	public ResponseEntity<Consolidado> createConsolidado(@RequestBody Consolidado consolidated) {
 		try {
 			Consolidado _consolidado = consolidadoRepository
-					.save(new Consolidado(consolidated.getCiudad(), consolidated.getTotalventas()));
+					.save(new Consolidado(consolidated.getCodigociudad(),consolidated.getCiudad(), consolidated.getTotalventas()));
 			return new ResponseEntity<>(_consolidado, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -96,9 +96,9 @@ public class ConsolidadoController {
 	}
 
 	@PutMapping("/consolidados/{id}")
-	public ResponseEntity<Consolidado> updateConsolidado(@PathVariable("id") String id,
+	public ResponseEntity<Consolidado> updateConsolidado(@PathVariable("id") String codigociudad,
 			@RequestBody Consolidado consolidated) {
-		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(id);
+		Optional<Consolidado> consolidadoData = consolidadoRepository.findById(codigociudad);
 
 		if (consolidadoData.isPresent()) {
 			Consolidado _consolidado = consolidadoData.get();
@@ -111,9 +111,9 @@ public class ConsolidadoController {
 	}
 
 	@DeleteMapping("/consolidados/{id}")
-	public ResponseEntity<HttpStatus> deleteConsolidados(@PathVariable("id") String id) {
+	public ResponseEntity<HttpStatus> deleteConsolidados(@PathVariable("id") String codigociudad) {
 		try {
-			consolidadoRepository.deleteById(id);
+			consolidadoRepository.deleteById(codigociudad);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
