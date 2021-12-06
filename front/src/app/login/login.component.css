@@ -47,7 +47,7 @@ input{
 }
 .contenedorfondo{
     width: 100%;
-    height: calc(100vh - 101.5px);
+    height: 100vh;
     overflow: hidden;
     background: rgba(112, 112, 112, 0.6);
     

@@ -28,4 +28,11 @@ export class VentasService {
       })
     );
   }
+  postConsolidado(data: any) {
+    return this.http.post<any>('http://localhost:8080/api/consolidado', data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
 }

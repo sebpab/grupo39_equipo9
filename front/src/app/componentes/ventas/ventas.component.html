@@ -1,17 +1,22 @@
 <div class="content">
-    <h1 class="tituloventas animate__animated animate__bounceInLeft">Gestión de ventas</h1>
+    <h1 class="tituloventas animate__animated animate__bounceInLeft">Gestión de ventas</h1><br>
+    <label class="ciudadTittle animate__animated animate__bounceInLeft">Seleccione la sucursal:</label>
+    <select class="seleccionarCiudad animate__animated animate__bounceInLeft" [(ngModel)]="selectCiudad">
+        <option value="1" >Bogotá</option>
+        <option [selected] value="2">Medellín</option>
+        <option value="3">Cali</option>
+    </select>
     <form [formGroup]="formClientes" class="formularioPrincipal">
         <fieldset class="form-group fieldCedula">
             <label class="cedulaTittle">Cédula</label>
              <input id="cedulaC" type="text" value="cedula" formControlName="cedulaCliente" class="form-control"
                 name="cedula_cliente" required="required">
-            <button type="button" class="btnCliente"  id="submit" (click)="enviarCedula()">Consultar</button>
+            <button type="button" class="btnCliente"  id="submit" (click)="enviarCedula()"><img class="iconSearch" src="assets/search.svg" alt="search"> Consultar</button>
         </fieldset>
         <fieldset class="consecutivoV">
-            <label>Consecutivo</label> <input id="consecutivo" type="text" value="" formControlName="consecutivoVenta" class="form-control"
+            <label class="consecutivoTittle">Consecutivo</label> <input id="consecutivo" type="text" value="" formControlName="consecutivoVenta" class="form-control"
                 name="cedula_cliente" required="required">
         </fieldset>
-        
         <fieldset class="form-group inputNombre">
             <label>Nombre</label> <input id="nombreCliente" readonly=»readonly» formControlName="nombreCliente" type="text" value="" class="form-control"
                 name="nombre_cliente" required="required">
@@ -31,9 +36,7 @@
             <label>Correo</label> <input id="correoCliente" readonly=»readonly» formControlName="correoCliente" type="text" value="" class="form-control"
                 name="email_cliente">
         </fieldset>
-        
     </form>
-
     <form [formGroup]="formProductos" class="formularioProductos">
         <div class="titulosClientes">
             <label class="codigoProductoT">Cod. Producto</label>
@@ -46,7 +49,7 @@
             <fieldset class="form-group inputCodigoProducto producto1">
                 <input id="codigoProducto1" type="text" formControlName="codigoproducto1" class="form-control" name="codigo_producto"
                     required="required">
-                <button type="button" class="btnProducto1" id="submitProducto" (click)="enviarProducto1()">Consultar</button>
+                <button type="button" class="btnProducto1" id="submitProducto" (click)="enviarProducto1()"><img class="iconSearch" src="assets/search.svg" alt="search"> Consultar</button>
                 <input id="nombreProducto1" readonly=»readonly» type="text" formControlName="nombreProducto1" class="form-control" name="nombre_producto1"
                     required="required">
                 <input id="cantidadProducto1" type="text" value="" formControlName="cantidadProducto1" class="form-control"
@@ -59,7 +62,7 @@
             <fieldset class="form-group inputCodigoProducto producto2">
                 <input id="codigoProducto2" type="text" value="" formControlName="codigoproducto2" class="form-control" name="codigo_producto"
                     required="required">
-                <button type="button" class="btnProducto2" id="submitProducto" (click)="enviarProducto2()">Consultar</button>
+                <button type="button" class="btnProducto2" id="submitProducto" (click)="enviarProducto2()"><img class="iconSearch" src="assets/search.svg" alt="search"> Consultar</button>
                 <input id="nombreProducto2" readonly=»readonly» type="text" formControlName="nombreProducto2" class="form-control" name="nombre_producto2"
                     required="required">
                 <input id="cantidadProducto2" type="text" value="" formControlName="cantidadProducto2" class="form-control"
@@ -72,7 +75,7 @@
             <fieldset class="form-group inputCodigoProducto producto3">
                 <input id="codigoProducto3" type="text" value="" formControlName="codigoproducto3" class="form-control" name="codigo_producto"
                     required="required">
-                <button type="button" class="btnProducto3" id="submitProducto" (click)="enviarProducto3()">Consultar</button>
+                <button type="button" class="btnProducto3" id="submitProducto" (click)="enviarProducto3()"><img class="iconSearch" src="assets/search.svg" alt="search"> Consultar</button>
                 <input id="nombreProducto3" readonly=»readonly» type="text" formControlName="nombreProducto3" class="form-control" name="nombre_producto3"
                     required="required">
                 <input id="cantidadProducto3" type="text" value="" formControlName="cantidadProducto3" class="form-control"
@@ -93,9 +96,10 @@
             <input id="totalIVA" readonly=»readonly» type="text" value="" formControlName="ivaVenta" class="form-control" required="required">
             <label class="tituloConIVA">Total con IVA</label>
             <input id="totalConIVA" readonly=»readonly» type="text" value="" formControlName="costoFinal" class="form-control" required="required">
+        </div>
+        <div class="valoresFinales">
             <button type="button" (click)="calcularValorTotalVenta()" class="calcularTotales" id="calcularTotales">Calcular</button>
             <button type="button" (click)="postVentasDetails()" class="confirmarVenta" id="confirmarVenta">Confirmar</button>
-
         </div>
     </form>
 </div>

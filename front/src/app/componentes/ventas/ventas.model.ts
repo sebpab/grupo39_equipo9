@@ -28,4 +28,7 @@ export class ventasModel {
     valorVentaProducto3: string = '';
     valorIVAProducto3: string = '';
     codigoventa: string = '';
+    codigociudad: string = '';
+    ciudad: string = '';
+    selectCiudad: string = '';
   }

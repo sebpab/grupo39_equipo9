@@ -1,5 +1,5 @@
 .formularioPrincipal{
-	padding: 20px 0px;
+	padding: 20px 2.5%;
 	width:95%;
 	height:auto;
 	margin: 40px auto;
@@ -11,6 +11,7 @@
 						"direccionCliente correoCliente";
 	grid-template-columns: 50% 50%;
 	background: white;
+	gap: 5px 20px;
 }
 
 .fieldCedula{
@@ -18,14 +19,15 @@
 	display:grid;
 	grid-template-areas: "label label"
 						"input boton";
-	grid-template-columns: 50% 50%;
-	margin: 0 5%;
+	grid-template-columns: calc(75% - 10px) calc(25% - 10px);
+	gap:0px 20px;
 }
 .cedulaTittle{
 	grid-area:label;
 }
 #cedulaC{
 	grid-area:input;
+	height: 39px;
 }
 .btnCliente{
 	grid-area:boton;
@@ -33,38 +35,61 @@
 	background:green;
 	border-radius:5px;
 	color:white;
-	margin: 0 0 0 5%;
+	height: 39px;
+	transition:all .1s linear;
 }
+
 .consecutivoV{
 	grid-area: consecutivo;
-	margin: 0 5%;
+	display:grid;
+	grid-template-areas: "consecutivoTittle"
+						"consecutivoinput";
+	grid-template-columns: 100%;
 }
+.consecutivo{
+	grid-area: consecutivoinput;
+}
+.seleccionarCiudad{
+	padding: 5px 20px;
+}
+.consecutivoTittle{
+	grid-area:consecutivoTittle;
+}
+.ciudadTittle{
+	margin: 0 15px 0 5%;
+}
+
 .inputNombre{
 	grid-area:nombreCliente;
-	margin: 0 5%;
+	
 }
 
 .inputDireccion{
 	grid-area:direccionCliente;
-	margin: 0 5%;
+	
 }
 .inputTelefono{
 	grid-area: TelefonoCliente;
-	margin: 0 5%;
+	
 }
 
 .inputCorreo{
 	grid-area: correoCliente;
-	margin: 0 5%;
+	
 }
 
-
-
+.iconSearch{
+	height:20px;
+}
 .btnProducto1, .btnProducto2, .btnProducto3 {
 	background:green;
 	border-radius:5px;
 	color:white;
 	border:none;
+	transition:all .1s linear;
+}
+.btnProducto1:hover, .btnProducto2:hover, .btnProducto3:hover, .btnProducto4:hover, .btnCliente:hover, .calcularTotales:hover, .confirmarVenta:hover{
+	transform:scale(1.02);
 }
 .botonCalcular{
 	width:100%;
@@ -79,6 +104,7 @@
 	border:none;
 	padding:10px 50px;
 	margin: 20px 25px 0px;
+	transition:all .1s linear;
 }
 #datosCliente{
 	grid-area:datosCliente;
@@ -100,7 +126,7 @@
 .titulosClientes{
 	display:grid;
 	grid-template-areas: "codigotitulo espacioProductoT nombreproductotitulo cantidadproducto valorproducto";
-	grid-template-columns:  3fr 3fr 4fr 1fr 2fr;
+	grid-template-columns:  3fr 1.5fr 4fr 1fr 2fr;
 	justify-content:center;
 	text-align:center;
 }
@@ -130,8 +156,7 @@
 	padding:5px 25px;
 	display:grid;
 	grid-template-areas: "codigo btnconsultar nombreproducto cantidadproducto valorproducto";
-	grid-template-columns: 180px 100px 300px 50px 200px;
-	grid-template-columns: 3fr 3fr 4fr 1fr 2fr;
+	grid-template-columns: 3fr 1.5fr 4fr 1fr 2fr;
 	gap:22px;
 }
 
@@ -189,4 +214,42 @@
     justify-content: center;
     margin-top:40px;
     display: flex;
+}
+.calculos{
+	display:grid;
+	grid-template-areas: "tltTotalVenta tltIVA tltconIVA"
+						 "totalVenta totalIVA totalconIVA";
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 0px 20px;
+}
+.tituloTotalVenta{
+	grid-area:tltTotalVenta;
+}
+.totalVenta{
+	grid-area:totalVenta;
+}	
+.tituloIVA{
+	grid-area:tltIVA;
+}
+.totalIVA{
+	grid-area:totalIVA;
+}
+.tituloConIVA{
+	grid-area:tltconIVA;
+}
+.totalConIVA{
+	grid-area:totalconIVA;
+}
+.valoresFinales{
+	display:grid;
+	grid-template-areas: "btnclc btnConfirmar";
+	grid-template-columns: 200px 200px;
+}
+.calcularTotales{
+	grid-area:btnclc;
+	transition:all .1s linear;
+}
+.confirmarVenta{
+	grid-area:btnConfirmar;
+	transition:all .1s linear;
 }
