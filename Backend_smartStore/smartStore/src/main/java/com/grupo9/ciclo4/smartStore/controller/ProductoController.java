@@ -30,7 +30,7 @@ public class ProductoController {
 	@Autowired
 	ProductoRepository productoRepository;
 	@GetMapping("/productos")
-    public ResponseEntity<List<Producto>> getAllProductos(@RequestParam(required = false) String codigoproducto) {
+    public ResponseEntity<List<Producto>> getAllProductos(@RequestParam(required = false) Integer codigoproducto) {
         try {
             List<Producto> productos = new ArrayList<Producto>();
             if (codigoproducto == null) {
@@ -46,7 +46,7 @@ public class ProductoController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-	@GetMapping("/productos/{id}")
+	@GetMapping("/productos/id/{id}")
 	public ResponseEntity<Producto> getproductoById(@PathVariable("id") String id){
 		Optional<Producto> productoData = productoRepository.findById(id);
 		
@@ -123,8 +123,8 @@ public class ProductoController {
 	}
 	
 	
-	@GetMapping("/productos/{codigoproducto}")
-	public ResponseEntity<List<Producto>> findByCodigoproducto(@PathVariable("codigoproducto") String codigoproducto){
+	@GetMapping("/productos/codigo/{codigoproducto}")
+	public ResponseEntity<List<Producto>> findByCodigoproducto(@PathVariable("codigoproducto") int codigoproducto){
 
 		List<Producto> productos = productoRepository.findByCodigoproducto(codigoproducto);
 		
@@ -132,11 +132,10 @@ public class ProductoController {
 		if(productos.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(productos,HttpStatus.OK);
 		
 		}catch(Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
 	}
 }

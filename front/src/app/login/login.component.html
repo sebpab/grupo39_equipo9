@@ -1,9 +1,14 @@
+<div class="contenedorfondo">
+  <img class="fondo_login" src="assets/fondo_smartstore2.jpg" alt="" draggable="false">
+</div>
+
 <div class=container>
-    <div>    
-      <div class="position-absolute top-50 start-50 translate-middle mt-5">
-        <h1><i class="fas fa-sign-in-alt"></i> Login del sistema</h1>
-        <div class=row>
-          <div class="col-sm-12">
+    <div>
+      <div class="contentBack"></div>    
+      <div class="contenedor-login position-absolute top-50 start-50 translate-middle mt-5">
+        <img class="logo" src="./assets/logo4.png" alt="Logo" draggable="false">
+        <div class=row >
+          <div class="col-sm-12" id="inputUser">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-user-shield"></i></span>
               <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="user">
@@ -11,7 +16,7 @@
           </div>        
         </div>
         <div class=row>
-          <div class="col-sm-12">
+          <div class="col-sm-12" id="inputPass">
             <div class="input-group mb-3">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
               <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" [(ngModel)]="pass">
@@ -20,12 +25,11 @@
         </div>
         <div class=row>
           <div class="col-sm-12">
-            <button class="btn btn-success" (click)="comparar()">Iniciar Sesión</button>  
-                                 
+              <button class="btn-login btn btn-success" (click)="comparar()">Iniciar Sesión</button>
           </div>        
         </div> 
         <br>
-  
+        
         <!-- alertas -->
   
         <div *ngIf="correcto=='autorizado'"   class="alert alert-success" role="alert">
