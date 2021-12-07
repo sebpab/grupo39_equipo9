@@ -124,12 +124,16 @@ export class VentasComponent implements OnInit {
     console.log(codigociudad + " " + ciudad + " " + codigoventa);
     this.api.postConsolidado(
       {
-      "codigociudad": codigociudad,
       "ciudad": ciudad,
+      "codigociudad": codigociudad,
       "codigoventa": codigoventa
     }).subscribe(
       (res) => {
         console.log(res);
+        alert('Venta registrada correctamente!');
+        this.formProductos.reset();
+        this.formClientes.reset();
+        this.formVentas.reset();
       },
       (err) => {
         alert('Error');
