@@ -1,0 +1,21 @@
+.clientesTabla{
+    margin:3% 5%;
+    text-align: center;
+    border: 1.5px solid rgba(0,0,0,0.2);
+    border-radius:8px;
+	padding: 30px;
+}
+
+.tituloCliente{
+    margin:3% 6%;
+    text-align: center;
+}
+
+.contenedorBtns{
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+
+}
+
+

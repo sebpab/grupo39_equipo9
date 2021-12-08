@@ -1,11 +1,57 @@
 <div class="animate__animated animate__bounceInLeft">
     <div class="tituloCliente">
-      <div class="container-fluid">
-        <h1>Reportes</h1>
-        <div class="d-flex">
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Listado de Clientes</button>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Ventas por Cliente</button>
-        </div>
+      <h1>Reportes</h1>
+      <div class="container-fluid contenedorBtns" >
+       
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getAllClientes()">Listado de Clientes</button>
+
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getAllVentasClientes()">Ventas por Cliente</button>
       </div>
+
+      <div class="clientesTabla" *ngIf="displayTable_clientes ==1">
+        <table class="table table-striped mt-3">
+          
+          <thead>
+            <tr>
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of clienteData">
+              <td>{{row.cedula}}</td>
+              <td>{{row.nombrecompleto}}</td>
+              <td>{{row.direccion}}</td>
+              <td>{{row.telefono}}</td>
+              <td>{{row.correo}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="clientesTabla" *ngIf="displayTable_ventasClnts ==1">
+        <table class="table table-striped mt-3">
+          
+          <thead>
+            <tr>
+              <th scope="col">Ventas Clientes</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of clienteData">
+              
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+
     </div>
   </div>
