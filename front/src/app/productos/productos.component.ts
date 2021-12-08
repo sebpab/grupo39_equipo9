@@ -19,7 +19,7 @@ export class ProductosComponent implements OnInit {
   //variable contenedora de contenidos
   contenido: any;
   //url api get
-  urlapiGET: string = "http://localhost:8080/api/productos";
+  urlapiGET: string = "http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/productos";
 
   ngOnInit(): void {
 

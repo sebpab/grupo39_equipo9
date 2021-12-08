@@ -7,7 +7,7 @@ import { ProductosComponent } from './productos.component';
 })
 export class FileUploadService {
   // API url
-  baseApiUrl = 'http://localhost:8080/api/productos';
+  baseApiUrl = 'http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/productos';
 
   //inicializando objeto http
   constructor(private http: HttpClient) {}

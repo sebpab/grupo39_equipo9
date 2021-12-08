@@ -7,14 +7,14 @@ import { map } from 'rxjs/operators';
 export class ClientesService {
   constructor(private http: HttpClient) {}
   postCliente(data: any) {
-    return this.http.post<any>('http://localhost:8080/api/clientes', data).pipe(
+    return this.http.post<any>('http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/clientes', data).pipe(
       map((res: any) => {
         return res;
       })
     );
   }
   getCliente() {
-    return this.http.get<any>('http://localhost:8080/api/clientes').pipe(
+    return this.http.get<any>('http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/clientes').pipe(
       map((res: any) => {
         return res;
       })
@@ -22,7 +22,7 @@ export class ClientesService {
   }
   updateCliente(data: any, cedula: string) {
     return this.http
-      .put<any>('http://localhost:8080/api/clientes/' + cedula, data)
+      .put<any>('http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/clientes/' + cedula, data)
       .pipe(
         map((res: any) => {
           return res;
@@ -31,7 +31,7 @@ export class ClientesService {
   }
   deleteCliente(cedula: Text) {
     return this.http
-      .delete<any>('http://localhost:8080/api/clientes/' + cedula)
+      .delete<any>('http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/clientes/' + cedula)
       .pipe(
         map((res: any) => {
           return res;
