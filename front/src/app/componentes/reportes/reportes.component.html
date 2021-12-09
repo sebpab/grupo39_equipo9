@@ -28,17 +28,39 @@
         </table>
       </div>
       <div class="clientesTabla" *ngIf="displayTable_ventasClnts ==1">
+        <div class="tittleContent container-fluid px-4 animate__animated animate__bounceInLeft">
+          <h1>Total de Ventas por Cliente</h1>         
+      </div>
         <table class="table table-striped mt-3">
           <thead>
             <tr>
-              <th scope="col">Ventas Clientes</th>
+              <th scope="col">Cedula</th>              
+              <th scope="col">Nombre</th>
+              <th scope="col">Total Ventas Cliente</th>              
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let row of clienteData">  
-            </tr>
+            <tr *ngFor="let venta of contenido">
+              <td>{{venta.cedulacliente}}</td>        
+              
+              <ng-container *ngFor="let cliente of contenido2">
+                <ng-container *ngIf="venta.cedulacliente == cliente.cedula">
+                  <td>{{cliente.nombrecompleto}}</td>  
+                </ng-container>
+              </ng-container>
+              <td>{{venta.valorventa}}</td>                
+          </tr>
           </tbody>
         </table>
+
+        <div class="d-flex flex-row-reverse">
+          <div class="p-2">
+        <label class="tituloTotalVenta">Total Ventas</label>
+        <h3 [(ngModel)]="totalventasreporte">{{totalventasreporte}}</h3>
+
+        </div>
+      </div>
+
       </div>
 
 
