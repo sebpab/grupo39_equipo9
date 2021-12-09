@@ -1,8 +1,38 @@
-<div class="animate__animated animate__bounceInLeft">
-    <div class="tituloCliente">
-      <div class="container-fluid">
-        <h1>Consolidados</h1>
-        <div><h2>Total Ventas Por Ciudad</h2></div>
-      </div>
+<div>
+  <div class="tituloCliente animate__animated animate__bounceInLeft">
+    <div class="container-fluid">
+      <h1 class="tituloconsolidado animate__animated animate__bounceInLeft">Total ventas por ciudad</h1>
     </div>
   </div>
+  <div class="content">
+    <table class="table table-striped tabla">
+      <thead>
+        <tr>
+          <th>Ciudad</th>
+          <th>Total número de ventas</th>
+          <th>Total de ventas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bogotá</td>
+          <td>{{cantidadBogota}}</td>
+          <td>$ {{totalBogota}}</td>
+        </tr>
+        <tr>
+          <td>Medellín</td>
+          <td>{{cantidadMedellin}}</td>
+          <td>$ {{totalMedellin}}</td>
+        </tr>
+        <tr>
+          <td>Cali</td>
+          <td>{{cantidadCali}}</td>
+          <td>$ {{totalCali}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="totalventas"><span><b>Total número de ventas de las tiendas: </b></span> <label>{{cantidadBogota + cantidadMedellin + cantidadCali}}</label></div>
+    <div class="totalventas"><span><b>Total ventas de las tiendas: </b></span> <label>$ {{totalCali + totalMedellin + totalBogota}}</label></div>
+  </div>
+
+</div>
