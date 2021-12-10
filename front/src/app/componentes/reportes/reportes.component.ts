@@ -30,8 +30,8 @@ export class ReportesComponent implements OnInit {
    contenido2: any;
 
    //url api get
-   urlapiGET: string = "http://localhost:8080/api/ventas";
-   urlapiGET2: string = "http://localhost:8080/api/clientes";
+   urlapiGET: string = "http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/ventas";
+   urlapiGET2: string = "http://ec2-3-94-86-0.compute-1.amazonaws.com:8080/api/clientes";
 
    totalventasreporte: any;
 
