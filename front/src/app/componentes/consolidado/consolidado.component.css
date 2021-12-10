@@ -1,0 +1,23 @@
+.tituloconsolidado{
+    justify-content: center;
+    margin:40px 0 60px;
+    display: flex;
+}
+.textoconsolidado{
+	margin: 0 15px 0 5%;
+}
+.content{
+    border: 1.5px solid rgba(0,0,0,0.2);
+    margin:1% 5% 3%;
+    border-radius: 8px;
+    padding: 50px 30px;
+}
+.tabla{
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
+.totalventas{
+    margin: 20px 0;
+    text-align: center;
+}
