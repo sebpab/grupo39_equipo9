@@ -1,0 +1,72 @@
+<div class="animate__animated animate__bounceInLeft">
+  <div class="tituloCliente">
+    <h1>Reportes</h1>
+    <div class="container-fluid contenedorBtns">
+      <button type="button" class="btn btn-success"  
+        (click)="getAllClientes()">Listado de Clientes</button>
+      <button type="button" class="btn btn-success"  
+        (click)="getAllVentasClientes()">Ventas por Cliente</button>
+    </div>
+    <div class="clientesTabla" *ngIf="displayTable_clientes ==1">
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of clienteData">
+            <td>{{row.cedula}}</td>
+            <td>{{row.nombrecompleto}}</td>
+            <td>{{row.direccion}}</td>
+            <td>{{row.telefono}}</td>
+            <td>{{row.correo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="clientesTabla" *ngIf="displayTable_ventasClnts ==1">
+      <div class="titleContent container-fluid px-4 animate__animated animate__bounceInLeft">
+        <h1>Total de Ventas por Cliente</h1>
+      </div>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Total Ventas Cliente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let venta of contenido">
+            <td>{{venta.cedulacliente}}</td>
+
+            <ng-container *ngFor="let cliente of contenido2">
+              <ng-container *ngIf="venta.cedulacliente == cliente.cedula">
+                <td>{{cliente.nombrecompleto}}</td>
+              </ng-container>
+            </ng-container>
+            <td>{{venta.valorventa}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex flex-row-reverse">
+        <div class="p-2">
+          <label class="tituloTotalVenta">Total Ventas</label>
+          <h3>{{totalventasreporte}}</h3>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>

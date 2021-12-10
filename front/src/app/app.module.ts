@@ -12,6 +12,8 @@ import { ClientesComponent } from './componentes/clientes/clientes.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { VentasComponent } from './componentes/ventas/ventas.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
+import { ConsolidadoComponent } from './componentes/consolidado/consolidado.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     NavbarComponent,
     VentasComponent,
     FooterComponent,
+    ReportesComponent,
+    ConsolidadoComponent,
   ],
   imports: [
     BrowserModule,
